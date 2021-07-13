@@ -5,7 +5,7 @@
 
 BaniDB's vision is to create a single, universally accessible Gurbani Database for Sikh websites and applications. BaniDB is, and will continue to be, the most accurate and complete Gurbani database ever created for use by Sikhs around the world.
 
-In order to make this vision possible, members of this collaborative effort work to ensure that the platform is selfsustaining, tested, and secure.
+In order to make this vision possible, members of this collaborative effort work to ensure that the platform is self-sustaining, tested, and secure.
 
 ## Python package for BaniDB API
 
@@ -15,20 +15,49 @@ With pip
 pip install banidb
 ```
 
-### Usage
-Quick Start
-```
-shabad = banidb.random()
-print(shabad)
+### **Usage**
 
+#### **Search Types**
+```python
+# Get searchtype indices to be used for custom search
+search_types = banidb.search_type()
+print(search_type)
 ```
-Search shabad by first letters"
+
+**All available Search Types**
+| Index   | Search Type                                             |
+|:-------:|:--------------------------------------------------------|
+|    0    |First letter each word from start (Gurmukhi)|
+|    1    |First letter each word anywhere (Gurmukhi) **[Default]** |
+|    2    |Full Word (Gurmukhi)                                     |
+|    3    |Full Word Translation (English)                          |
+|    4    |Romanized Gurmukhi (English)                             |
+|    5    |Ang                                                      |
+|    6    |Main Letter (Gurmukhi)                                   |
+|    7    |Romanized first letter anywhere (English)                |
+
+
+#### **Search**
+
+```python
+# The Basic Layout
+banidb.search(query, searchtype=1, source='all', larivaar=False,
+           ang=None, raag=None, writer='all', page=1, results=None)
 ```
-print("\tSearching Bandhana Har Bandhana ....")
+
+**Example**
+```python
+# Searching Bandhana Har Bandhana ....
 shabad = banidb.search("bhbgggr")
 print(shabad)
 ```
 
+#### **Random**
+```python
+# Get random shabad
+shabad = banidb.random()
+print(shabad)
+```
 
 ## Release
 ### Checkout the main branch
