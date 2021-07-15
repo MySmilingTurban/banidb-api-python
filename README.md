@@ -39,7 +39,7 @@ print(search_type)
 
 #### **Search**
 
-banidb.search(query, [searchtype](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [source]()='all', larivaar=False, ang=None, raag=None, writer='all', page=1, results=None)
+banidb.search(query, [searchtype](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [source](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='all', larivaar=False, ang=None, raag=None, [writer](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#writers)='all', page=1, results=None)
 
 
 **Example**
