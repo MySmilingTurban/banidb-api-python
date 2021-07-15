@@ -39,11 +39,8 @@ print(search_type)
 
 #### **Search**
 
-```python
-# The Basic Layout
-banidb.search(query, searchtype=1, source='all', larivaar=False,
-           ang=None, raag=None, writer='all', page=1, results=None)
-```
+banidb.search(query, [searchtype](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [source]()='all', larivaar=False, ang=None, raag=None, writer='all', page=1, results=None)
+
 
 **Example**
 ```python
@@ -57,6 +54,29 @@ print(shabad)
 # Get random shabad
 shabad = banidb.random()
 print(shabad)
+```
+
+#### **Sources**
+```python
+sources = banidb.sources()
+print(sources)
+```
+**All available Sources**
+| Source ID | Source                      |Source Unicode|
+|:---------:|:----------------------------|:---- |
+|A          |Amrit Keertan                |ਅੰਮ੍ਰਿਤ ਕੀਰਤਨ|
+|B          |Bhai Gurdas Ji Vaaran        |ਭਾਈ ਗੁਰਦਾਸ ਜੀ ਵਾਰਾਂ|
+|D          |Dasam Bani                   |ਦਸਮ ਬਾਣੀ|
+|G          |Sri Guru Granth Sahib Ji     |ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ|
+|N          |Bhai Nand Lal Ji Vaaran      |ਭਾਈ ਨੰਦ ਲਾਲ ਜੀ ਵਾਰਾਂ|
+|R          |Codes of Conduct and Other Panthic Sources |ਰਹਿਤਨਾਮੇ ਅਤੇ ਪੰਥਕ ਲਿਖ਼ਤਾਂ|
+|S          |Bhau Gurdas Singh Ji Vaaran  |ਭਾਈ ਗੁਰਦਾਸ ਸਿੰਘ ਜੀ ਵਾਰਾਂ|
+
+
+#### **Writers**
+```python
+writers = banidb.writers()
+print(writers)
 ```
 
 ## Release
