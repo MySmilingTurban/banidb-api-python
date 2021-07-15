@@ -58,6 +58,7 @@ print(shabad)
 
 #### **Sources**
 ```python
+# Get all sources with ids
 sources = banidb.sources()
 print(sources)
 ```
@@ -75,8 +76,23 @@ print(sources)
 
 #### **Writers**
 ```python
+# Get all writers with ids
 writers = banidb.writers()
 print(writers)
+```
+
+#### **Raags**
+```python
+# Get all raags with ids
+raags = banidb.raags()
+print(raags)
+```
+
+#### **Raag details**
+```python
+# Get all available details using raag_id
+raag = banidb.raag(raag_id)
+print(raag)
 ```
 
 ## Release
