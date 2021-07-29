@@ -21,7 +21,7 @@ pip install banidb
 ```python
 # Get searchtype indices to be used for custom search
 search_types = banidb.search_type()
-print(search_type)
+print(search_types)
 ```
 
 **All available Search Types**
@@ -39,14 +39,21 @@ print(search_type)
 
 #### **Search**
 
-banidb.search(`query`, [`searchtype`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [`source`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='all', `larivaar`=False, `ang`=None, `raag`=None, [`writer`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#writers)='all', `page`=1, `results`=None)
+**banidb.search**(`query`, [`searchtype`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [`source`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='all', `larivaar`=False, `ang`=None, [`raag`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#raags)=None, [`writer`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#writers)='all', `page`=1, `results`=None)
 
 
 **Example**
 ```python
 # Searching Bandhana Har Bandhana ....
-shabad = banidb.search("bhbgggr")
-print(shabad)
+shabad_data = banidb.search("bhbgggr")
+print(shabad_data)
+```
+
+#### **Shabad**
+```python
+# Get shabad from shabad_id
+shabad_data = banidb.shabad(shabad_id, larivaar=False)
+print(shabad_data)
 ```
 
 #### **Random**
@@ -59,8 +66,8 @@ print(shabad)
 #### **Sources**
 ```python
 # Get all sources with ids
-sources = banidb.sources()
-print(sources)
+sources_data = banidb.sources()
+print(sources_data)
 ```
 **All available Sources**
 | Source ID | Source                      |Source Unicode|
@@ -71,29 +78,40 @@ print(sources)
 |G          |Sri Guru Granth Sahib Ji     |ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ|
 |N          |Bhai Nand Lal Ji Vaaran      |ਭਾਈ ਨੰਦ ਲਾਲ ਜੀ ਵਾਰਾਂ|
 |R          |Codes of Conduct and Other Panthic Sources |ਰਹਿਤਨਾਮੇ ਅਤੇ ਪੰਥਕ ਲਿਖ਼ਤਾਂ|
-|S          |Bhau Gurdas Singh Ji Vaaran  |ਭਾਈ ਗੁਰਦਾਸ ਸਿੰਘ ਜੀ ਵਾਰਾਂ|
+|S          |Bhai Gurdas Singh Ji Vaaran  |ਭਾਈ ਗੁਰਦਾਸ ਸਿੰਘ ਜੀ ਵਾਰਾਂ|
 
 
 #### **Writers**
 ```python
 # Get all writers with ids
-writers = banidb.writers()
-print(writers)
+writers_data = banidb.writers()
+print(writers_data)
 ```
 
 #### **Raags**
 ```python
 # Get all raags with ids
-raags = banidb.raags()
-print(raags)
+raags_data = banidb.raags()
+print(raags_data)
 ```
 
 #### **Raag details**
 ```python
 # Get all available details using raag_id
-raag = banidb.raag(raag_id)
-print(raag)
+raag_data = banidb.raag(raag_id)
+print(raag_data)
 ```
+
+#### **Angs**
+
+`# Get the banis on a specific Ang (Page)`
+
+**banidb.angs**(`ang_no`, [`source_id`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='G', [`larivaar`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#larivaar)=False, [`steek`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#steek)=False, [`translit`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#transliterations)=False)
+
+### **Some Important Terms to know**
+#### Larivaar
+#### Steek
+#### Transliteration
 
 ## Release
 ### Checkout the main branch
@@ -148,4 +166,3 @@ Note: at the time of writing this doc, this feature was not working on MacOS
 ``` 
 gh workflow run python-publish.yml
 ```
-
