@@ -39,14 +39,16 @@ print(search_types)
 
 #### **Search**
 
-**banidb.search**(`query`, [`searchtype`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [`source`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='all', [`larivaar`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#larivaar)=False, [`ang`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#angs)=None, [`raag`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#raags)=None, [`writer`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#writers)='all', `page`=1, `results`=None)
+**banidb.search**(query, [searchtype](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [source](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='all', [larivaar](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#larivaar)=False, [ang](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#angs)=None, [raag](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#raags)=None, [writer](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#writers)='all', page=1, results=None)
 
 
 **Example**
 ```python
-# Searching Bandhana Har Bandhana ....
+# Searching Bandhana Har Bandhana Gun Gaavo Gopal Rai....
 shabad_data = banidb.search("bhbgggr")
-print(shabad_data)
+
+# Output Format
+shabad_data = {}
 ```
 
 #### **Shabad**
