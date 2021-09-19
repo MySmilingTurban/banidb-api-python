@@ -1,5 +1,10 @@
-# [BaniDB](https://pypi.org/user/KhalisFoundation/)
+# [BaniDB.py](https://pypi.org/project/banidb/)
+A Python wrapper for [BaniDB API](https://github.com/KhalisFoundation/banidb-api)
+
 [![](bdb.svg)](http://banidb.com)
+
+# Installation
+- Run ```pip install banidb```
 
 # Vision Statement
 
@@ -7,17 +12,9 @@ BaniDB's vision is to create a single, universally accessible Gurbani Database f
 
 In order to make this vision possible, members of this collaborative effort work to ensure that the platform is self-sustaining, tested, and secure.
 
-## Python package for BaniDB API
+# Usage
 
-### Installation
-With pip
-```
-pip install banidb
-```
-
-### **Usage**
-
-#### **Search Types**
+## Search Types
 ```python
 # Get searchtype indices to be used for custom search
 search_types = banidb.search_type()
@@ -36,44 +33,7 @@ print(search_types)
 |    6    |Main Letter (Gurmukhi)                                   |
 |    7    |Romanized first letter anywhere (English)                |
 
-
-#### **Search**
-
-**banidb.search**(query, [searchtype](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [source](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='all', [larivaar](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#larivaar)=False, [ang](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#angs)=None, [raag](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#raags)=None, [writer](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#writers)='all', page=1, results=None)
-
-
-**Example**
-```python
-# Searching Bandhana Har Bandhana Gun Gaavo Gopal Rai....
-shabad_data = banidb.search("bhbgggr")
-
-# Output Format
-shabad_data = {}
-```
-
-#### **Shabad**
-```python
-# Get shabad from shabad_id
-shabad_data = banidb.shabad(shabad_id, larivaar=False)
-print(shabad_data)
-```
-
-#### **Random**
-```python
-# Get random shabad
-shabad = banidb.random(source_id='G')
-print(shabad)
-```
-
-#### **Hukamnama**
-When no parameters are provided it automatically gives the Hukamnama of current date, according to the availability and Time Zone.
-```python
-# Get Hukamnama for a specific date 
-data = hukamnama(year=y, month=m, day=d)
-print(data)
-```
-
-#### **Sources**
+## **Sources**
 ```python
 # Get all sources with ids
 sources_data = banidb.sources()
@@ -90,39 +50,91 @@ print(sources_data)
 |R          |Codes of Conduct and Other Panthic Sources |ਰਹਿਤਨਾਮੇ ਅਤੇ ਪੰਥਕ ਲਿਖ਼ਤਾਂ|
 |S          |Bhai Gurdas Singh Ji Vaaran  |ਭਾਈ ਗੁਰਦਾਸ ਸਿੰਘ ਜੀ ਵਾਰਾਂ|
 
+## Search
 
-#### **Writers**
+banidb.search (query, [searchtype](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#search-types)=1, [source](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='all', [larivaar](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#larivaar)=False, [ang](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#angs)=None, [raag](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#raags)=None, [writer](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#writers)='all', page=1, results=None)
+
+
+**Example**
+```python
+# Searching Bandhana Har Bandhana Gun Gaavo Gopal Rai....
+shabad_data = banidb.search("bhbgggr")
+
+# Output
+shabad_data = {
+                'total_results': 1,
+                'total_pages': 1,
+                'pages_data': 
+                    {'page_1': 
+                      [{
+                        'shabad_id': 2610,
+                        'verse': 'ਬੰਦਨਾ ਹਰਿ ਬੰਦਨਾ ਗੁਣ ਗਾਵਹੁ ਗੋਪਾਲ ਰਾਇ ॥ ਰਹਾਉ ॥',
+                        'steek': {
+                            'en': 'I bow in reverence to the Lord, I bow in reverence. I sing the Glorious Praises of the Lord, my King. ||Pause||',
+                            'pu': 'ਹੇ ਭਾਈ! ਪਰਮਾਤਮਾ ਨੂੰ ਸਦਾ ਨਮਸਕਾਰ ਕਰਿਆ ਕਰੋ, ਪ੍ਰਭੂ ਪਾਤਿਸ਼ਾਹ ਦੇ ਗੁਣ ਗਾਂਦੇ ਰਹੋ ।ਰਹਾਉ।'
+                        }, 
+                        'source': {
+                            'pu': 'ਸ੍ਰੀ ਗੁਰੂ ਗ੍ਰੰਥ ਸਾਹਿਬ ਜੀ',
+                            'en': 'Sri Guru Granth Sahib Ji', 
+                            'ang': 683, 'raagpu': 'ਰਾਗੁ ਧਨਾਸਰੀ', 
+                            'raagen': 'Raag Dhanaasree', 
+                            'writer': 'Guru Arjan Dev Ji'
+                        }
+                      }]
+                    }
+            }
+```
+
+## **Shabad**
+```python
+# Get shabad from shabad_id
+shabad_data = banidb.shabad(shabad_id, larivaar=False)
+print(shabad_data)
+```
+
+## **Random**
+```python
+# Get random shabad
+shabad = banidb.random(source_id='G')
+print(shabad)
+```
+
+## **Hukamnama**
+When no parameters are provided it automatically gives the Hukamnama of current date, according to the availability and Time Zone.
+```python
+# Get Hukamnama for a specific date 
+data = hukamnama(year=y, month=m, day=d)
+print(data)
+```
+
+## **Writers**
 ```python
 # Get all writers with ids
 writers_data = banidb.writers()
 print(writers_data)
 ```
 
-#### **Raags**
+## **Raags**
 ```python
 # Get all raags with ids
 raags_data = banidb.raags()
 print(raags_data)
 ```
 
-#### **Raag details**
+## **Raag**
 ```python
 # Get all available details using raag_id
 raag_data = banidb.raag(raag_id)
 print(raag_data)
 ```
 
-#### **Angs**
+## **Angs**
 
-`# Get the banis on a specific Ang (Page)`
-
-**banidb.angs**(`ang_no`, [`source_id`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#sources)='G', [`larivaar`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#larivaar)=False, [`steek`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#steek)=False, [`translit`](https://github.com/MySmilingTurban/banidb-api-python/blob/docs/README.md#transliterations)=False)
-
-### **Some Important Terms to know**
-#### Larivaar
-#### Steek
-#### Transliteration
-
+```python
+# Get the banis on a specific Ang (Page)
+gurbani = banidb.angs(ang_no, source_id='G', larivaar=False, steek=False, translit=False)
+print(gurbani)
+```
 ---
 ## Release
 ### Checkout the main branch
